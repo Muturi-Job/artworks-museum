@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Home.css';
 import img1 from '../images/adrianna-geo-1rBg5YSi00c-unsplash.jpg';
 import img2 from '../images/andrew-neel-acowe0pCVBg-unsplash.jpg';
@@ -10,6 +10,13 @@ import img6 from '../images/museum-background.jpg';
 function Home() {
   const [currentImg, setCurrentImg] = useState(0);
   const images = [img1, img2, img3, img4, img5, img6];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextImg();
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [currentImg]);
 
   const nextImg = () => {
     setCurrentImg(currentImg === images.length - 1 ? 0 : currentImg + 1);
