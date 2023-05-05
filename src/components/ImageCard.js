@@ -1,12 +1,9 @@
 import React from 'react';
 
 const ImageCard = ({item}) => {
-    const handleClick = () => {
-        // display the image on one side and artwork details on the other
-      };
-    
+   
     return (
-        <div className="img-container" onClick={handleClick}>
+        <div className="img-container" >
             <a href={"/"+item.id+"-"+item.title}>
                 <div className="basic-artwork-info">
                     <p className="artwork-title">{item.title}</p>
